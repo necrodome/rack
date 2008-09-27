@@ -33,7 +33,6 @@ context "Rack::Session::Cookie" do
     res = Rack::MockRequest.new(Rack::Session::Cookie.new(incrementor)).
       get("/", "HTTP_COOKIE" => "rack.session=blarghfasel")
     res.body.should.equal '{"counter"=>1}'
-    puts res.inspect
   end
 
   bigcookie = lambda { |env|
